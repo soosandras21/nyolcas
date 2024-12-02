@@ -1,0 +1,18 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+  displayName: 'Set up Python 3.x'
+
+- script: |
+    echo "hello world" > hello.py
+    python hello.py
+  displayName: 'Run hello.py script'
+
